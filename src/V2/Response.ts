@@ -11,13 +11,17 @@ export interface ApiGatewayV2Response extends APIGatewayProxyStructuredResultV2 
  */
 export class Response {
 
-  static redirect(location: string, code = 302): ApiGatewayV2Response {
+  static redirect(location: string, cookies?: string[] | string, code = 302): ApiGatewayV2Response {
+    if (cookies != undefined && !Array.isArray(cookies)) {
+      cookies = [cookies];
+    }
     return {
       statusCode: code,
       body: '',
       headers: {
         Location: location,
       },
+      cookies,
     };
   }
 

@@ -10,7 +10,7 @@ describe('redirect', () => {
   });
 
   test('custom status', () => {
-    const r2 = Response.redirect('csp-nijmegen.nl', 304);
+    const r2 = Response.redirect('csp-nijmegen.nl', undefined, 304);
     expect(r2.statusCode).toBe(304);
     expect(r2.headers?.Location).toBe('csp-nijmegen.nl');
   });
