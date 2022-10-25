@@ -11,17 +11,21 @@ export interface ApiGatewayV2Response extends APIGatewayProxyStructuredResultV2 
  */
 export class Response {
 
-  static redirect(location: string, code = 302): ApiGatewayV2Response {
+  static redirect(location: string, code = 302, cookies?: string[] | string): ApiGatewayV2Response {
+    if (cookies != undefined && !Array.isArray(cookies)) {
+      cookies = [cookies];
+    }
     return {
       statusCode: code,
       body: '',
       headers: {
         Location: location,
       },
+      cookies,
     };
   }
 
-  static html(body: string, cookies?: string[] | string, code = 200): ApiGatewayV2Response {
+  static html(body: string, code = 200, cookies?: string[] | string): ApiGatewayV2Response {
     if (cookies != undefined && !Array.isArray(cookies)) {
       cookies = [cookies];
     }
@@ -36,16 +40,24 @@ export class Response {
   }
 
   static error(code = 500, message?: string): ApiGatewayV2Response {
-    let body = !message ? undefined : {
-      body: JSON.stringify({ message: message }),
-      headers: {
-        'Content-type': 'application/json',
-      },
-    };
+
+    if (message) {
+      return this.json({ message: message }, code);
+    }
 
     return {
       statusCode: code,
-      ...body,
+    };
+  }
+
+  static json(json: any, code = 200): ApiGatewayV2Response {
+    const body = JSON.stringify(json);
+    return {
+      statusCode: code,
+      body,
+      headers: {
+        'Content-type': 'application/json',
+      },
     };
   }
 

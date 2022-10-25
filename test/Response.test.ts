@@ -33,13 +33,13 @@ describe('html', () => {
   });
 
   test('custom status with single cookie', () => {
-    const r2 = Response.html('<html></html>', cookie1, 404);
+    const r2 = Response.html('<html></html>', 404, cookie1);
     expect(r2.statusCode).toBe(404);
     expect(r2.cookies).toContain(cookie1);
   });
 
   test('with multiple cookie', () => {
-    const r3 = Response.html('<html></html>', [cookie1, cookie2]);
+    const r3 = Response.html('<html></html>', 200, [cookie1, cookie2]);
     expect(r3.cookies).toContain(cookie1);
     expect(r3.cookies).toContain(cookie2);
   });
