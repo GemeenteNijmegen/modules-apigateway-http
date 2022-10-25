@@ -1,15 +1,17 @@
-export interface Apigatewayv2ResponseObject {
-  statusCode: number;
-  body?: string;
-  headers?: Partial<{
-    'Content-type': 'text/html'|'application/json';
-    [key: string]: string;
-  }>;
-  cookies?: string[];
+import { APIGatewayProxyStructuredResultV2 } from 'aws-lambda';
+
+/**
+ * Export under a different name for nice code completion
+ */
+export interface ApiGatewayV2Response extends APIGatewayProxyStructuredResultV2 {
 }
 
+/**
+ * Utility class for sending API gateway v2 responses
+ */
 export class Response {
-  static redirect(location: string, code = 302): Apigatewayv2ResponseObject {
+
+  static redirect(location: string, code = 302): ApiGatewayV2Response {
     return {
       statusCode: code,
       body: '',
@@ -19,12 +21,12 @@ export class Response {
     };
   }
 
-  static html(body: string, cookies: string[]|string|undefined): Apigatewayv2ResponseObject {
+  static html(body: string, cookies?: string[] | string, code = 200): ApiGatewayV2Response {
     if (cookies != undefined && !Array.isArray(cookies)) {
       cookies = [cookies];
     }
     return {
-      statusCode: 200,
+      statusCode: code,
       body,
       headers: {
         'Content-type': 'text/html',
@@ -33,9 +35,18 @@ export class Response {
     };
   }
 
-  static error(code = 500) {
+  static error(code = 500, message?: string): ApiGatewayV2Response {
+    let body = !message ? undefined : {
+      body: JSON.stringify({ message: message }),
+      headers: {
+        'Content-type': 'application/json',
+      },
+    };
+
     return {
       statusCode: code,
+      ...body,
     };
   }
+
 }
