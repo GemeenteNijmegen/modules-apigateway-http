@@ -61,4 +61,8 @@ export class Response {
     };
   }
 
+  static ok(): ApiGatewayV2Response {
+    return { statusCode: 200 };
+  }
+
 }

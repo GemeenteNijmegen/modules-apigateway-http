@@ -1,5 +1,9 @@
 import { Response } from '../src/V2/Response';
 
+test('ok', () => {
+  const r1 = Response.ok(); 
+  expect(r1.statusCode).toBe(200);
+});
 
 describe('redirect', () => {
 
