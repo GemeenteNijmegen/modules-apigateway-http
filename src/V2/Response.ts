@@ -61,10 +61,15 @@ export class Response {
     };
   }
 
-  static ok(code = 200): ApiGatewayV2Response {
+  static ok(code = 200, message?: string): ApiGatewayV2Response {
     if (code < 200 || code >= 300) {
       throw new Error('Only 2xx statuscodes are allowed');
     }
+
+    if (message) {
+      return this.json({ message: message }, code);
+    }
+
     return { statusCode: code };
   }
 
