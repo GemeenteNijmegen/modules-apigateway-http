@@ -1,6 +1,28 @@
 import { Response } from '../src/V2/Response';
 
 
+describe('ok', () => {
+
+  test('200', () => {
+    const r1 = Response.ok();
+    expect(r1.statusCode).toBe(200);
+  });
+
+  test('202', () => {
+    const r1 = Response.ok(202);
+    expect(r1.statusCode).toBe(202);
+  });
+
+  test('300', () => {
+    expect(() => Response.ok(300)).toThrowError('Only 2xx statuscodes are allowed');
+  });
+
+  test('199', () => {
+    expect(() => Response.ok(199)).toThrowError('Only 2xx statuscodes are allowed');
+  });
+
+});
+
 describe('redirect', () => {
 
   test('default status', () => {
