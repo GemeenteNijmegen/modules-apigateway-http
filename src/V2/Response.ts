@@ -50,7 +50,10 @@ export class Response {
     };
   }
 
-  static json(json: any, code = 200): ApiGatewayV2Response {
+  static json(json: any, code = 200, cookies?: string[] | string): ApiGatewayV2Response {
+    if (cookies != undefined && !Array.isArray(cookies)) {
+      cookies = [cookies];
+    }
     const body = JSON.stringify(json);
     return {
       statusCode: code,
@@ -58,6 +61,7 @@ export class Response {
       headers: {
         'Content-type': 'application/json',
       },
+      cookies,
     };
   }
 

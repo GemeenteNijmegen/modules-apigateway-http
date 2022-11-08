@@ -68,6 +68,38 @@ describe('html', () => {
 
 });
 
+
+describe('json', () => {
+  const cookie1 = 'session=blabla';
+  const cookie2 = 'session2=blabla';
+
+  test('200 without cookies', () => {
+    const r1 = Response.json({ key: 'value' }); // 200
+    expect(r1.statusCode).toBe(200);
+    expect(r1.cookies).toBeUndefined();
+    expect(r1.headers).not.toBeUndefined();
+    expect(r1.body).not.toBeUndefined();
+    if(!r1.body) { return; }
+    expect(JSON.parse(r1.body).key).toBe('value');
+    if (r1.headers) {
+      expect(r1.headers['Content-type']).toBe('application/json');
+    }
+  });
+
+  test('custom status with single cookie', () => {
+    const r2 = Response.json({}, 404, cookie1);
+    expect(r2.statusCode).toBe(404);
+    expect(r2.cookies).toContain(cookie1);
+  });
+
+  test('with multiple cookie', () => {
+    const r3 = Response.json({}, 200, [cookie1, cookie2]);
+    expect(r3.cookies).toContain(cookie1);
+    expect(r3.cookies).toContain(cookie2);
+  });
+
+});
+
 describe('error', () => {
 
   test('500 response', () => {

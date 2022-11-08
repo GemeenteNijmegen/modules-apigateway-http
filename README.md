@@ -6,7 +6,7 @@ A package useful when developing serverless functions using AWS Lambda/Apigatewa
 A response object with several methods for common http responses. Return these from your lambda handler:
 
 ```
-import { Response } from @gemeentenijmegen/apigateway-http/lib/V2/Response;
+import { Response } from '@gemeentenijmegen/apigateway-http/lib/V2/Response';
 
 // Redirect to https://example.com
 Response.redirect('https://example.com');
@@ -19,4 +19,7 @@ Response.error(403);
 
 // Return a html page
 Response.html('<!doctype html><html><head><title>My page</title></head><body>The html body</body></html>');
+
+// Return a json response from a javascript object
+Response.html({ key: 'value' });
 ```
