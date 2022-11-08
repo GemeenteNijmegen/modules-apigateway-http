@@ -79,7 +79,7 @@ describe('json', () => {
     expect(r1.cookies).toBeUndefined();
     expect(r1.headers).not.toBeUndefined();
     expect(r1.body).not.toBeUndefined();
-    if(!r1.body) { return; }
+    if (!r1.body) { return; }
     expect(JSON.parse(r1.body).key).toBe('value');
     if (r1.headers) {
       expect(r1.headers['Content-type']).toBe('application/json');
