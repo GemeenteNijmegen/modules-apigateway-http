@@ -65,6 +65,17 @@ export class Response {
     };
   }
 
+  static csv(csv: string, csvFileName: string, code = 200): ApiGatewayV2Response {
+    return {
+      statusCode: code,
+      body: csv,
+      headers: {
+        'Content-type': 'text/csv',
+        'Content-Disposition': `attachment;filename=${csvFileName}`,
+      },
+    };
+  }
+
   static ok(code = 200, message?: string): ApiGatewayV2Response {
     if (code < 200 || code >= 300) {
       throw new Error('Only 2xx statuscodes are allowed');
