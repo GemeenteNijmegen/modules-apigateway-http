@@ -1,23 +1,25 @@
-const { typescript } = require('projen');
-const { NpmAccess } = require('projen/lib/javascript');
+const { GemeenteNijmegenTsPackage } = require('@gemeentenijmegen/projen-project-type');
 
 const projectName = '@gemeentenijmegen/apigateway-http';
 
-const project = new typescript.TypeScriptProject({
+const project = new GemeenteNijmegenTsPackage({
   defaultReleaseBranch: 'main',
   name: projectName,
   repository: 'https://github.com/GemeenteNijmegen/modules-apigateway-http.git',
   defaultReleaseBranch: 'main',
   license: 'EUPL-1.2',
-  release: true,
-  releaseToNpm: true,
-  npmAccess: NpmAccess.PUBLIC,
+  depsUpgradeOptions: {
+    workflowOptions: {
+      branches: ['main'], // No acceptance branche available
+    },
+  },
   deps: [
     '@types/aws-lambda',
-  ], /* Runtime dependencies of this module. */
-  // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
+  ],
   devDeps: [
-  ], /* Build dependencies for this module. */
-  packageName: projectName, /* The "name" in package.json. */
+    '@gemeentenijmegen/projen-project-type',
+  ],
+  packageName: projectName,
+  enableAutoMergeDependencies: false, // We only have a main branche that requires reviewing so we cannot auto-upgrade
 });
 project.synth();
