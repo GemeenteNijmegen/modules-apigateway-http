@@ -6,6 +6,7 @@ const projectName = '@gemeentenijmegen/apigateway-http';
 const project = new typescript.TypeScriptProject({
   defaultReleaseBranch: 'main',
   name: projectName,
+  repository: 'https://github.com/GemeenteNijmegen/modules-apigateway-http.git',
   defaultReleaseBranch: 'main',
   license: 'EUPL-1.2',
   release: true,
