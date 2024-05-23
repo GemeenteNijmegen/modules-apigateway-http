@@ -5,6 +5,7 @@ const projectName = '@gemeentenijmegen/apigateway-http';
 const project = new GemeenteNijmegenTsPackage({
   defaultReleaseBranch: 'main',
   name: projectName,
+  repository: 'https://github.com/GemeenteNijmegen/modules-apigateway-http.git',
   defaultReleaseBranch: 'main',
   license: 'EUPL-1.2',
   depsUpgradeOptions: {
