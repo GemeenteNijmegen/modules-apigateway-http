@@ -706,10 +706,10 @@
     estraverse "^5.3.0"
     picomatch "^4.0.2"
 
-"@types/aws-lambda@^8.10.146":
-  version "8.10.146"
-  resolved "https://registry.yarnpkg.com/@types/aws-lambda/-/aws-lambda-8.10.146.tgz#05f9968d8cd9719a0a86526baf889c25761f60b8"
-  integrity sha512-3BaDXYTh0e6UCJYL/jwV/3+GRslSc08toAiZSmleYtkAUyV5rtvdPYxrG/88uqvTuT6sb27WE9OS90ZNTIuQ0g==
+"@types/aws-lambda@^8.10.147":
+  version "8.10.147"
+  resolved "https://registry.yarnpkg.com/@types/aws-lambda/-/aws-lambda-8.10.147.tgz#dc5c89aa32f47a9b35e52c32630545c83afa6f2f"
+  integrity sha512-nD0Z9fNIZcxYX5Mai2CTmFD7wX7UldCkW2ezCF8D1T5hdiLsnTWDGRpfRYntU6VjTdLQjOvyszru7I1c1oCQew==
 
 "@types/babel__core@^7.1.14":
   version "7.20.5"
@@ -799,9 +799,9 @@
   integrity sha512-hov8bUuiLiyFPGyFPE1lwWhmzYbirOXQNNo40+y3zow8aFVTeyn3VWL0VFFfdNddA8S4Vf0Tc062rzyNr7Paag==
 
 "@types/node@*":
-  version "22.10.4"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-22.10.4.tgz#da36bebcc4b124f3d62bfde1cd1dafd7763949c1"
-  integrity sha512-99l6wv4HEzBQhvaU/UGoeBoCK61SCROQaCCGyQSgX2tEQ3rKkNZ2S7CEWnS/4s1LV+8ODdK21UeyR1fHP2mXug==
+  version "22.10.5"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-22.10.5.tgz#95af89a3fb74a2bb41ef9927f206e6472026e48b"
+  integrity sha512-F8Q+SeGimwOo86fiovQh8qiXfFEh2/ocYv7tU5pJ3EXMSSxk1Joj5wefpFK2fHTf/N6HKGSxIDBT9f3gCxXPkQ==
   dependencies:
     undici-types "~6.20.0"
 
@@ -3983,10 +3983,10 @@ process-nextick-args@~2.0.0:
   resolved "https://registry.yarnpkg.com/process-nextick-args/-/process-nextick-args-2.0.1.tgz#7820d9b16120cc55ca9ae7792680ae7dba6d7fe2"
   integrity sha512-3ouUOpQhtgrbOa17J7+uxOTpITYWaGP7/AhoR3+A+/1e9skrzelGi/dXzEYyvbxubEF6Wn2ypscTKiKJFFn1ag==
 
-projen@^0.90.6:
-  version "0.90.6"
-  resolved "https://registry.yarnpkg.com/projen/-/projen-0.90.6.tgz#67d49718a90b80db0caee1724f67f417f4ea62d2"
-  integrity sha512-y1mUfVsqswwOnTfgJs3GhVDlYe+0o8Wtk/ydbZGdkJ6SzKqSk2ASTEOnuzwpl+jBjeqnnjL7N93wI78TanXiyQ==
+projen@^0.91.5:
+  version "0.91.5"
+  resolved "https://registry.yarnpkg.com/projen/-/projen-0.91.5.tgz#139f4210b4c1f5d406577ff08a53cca05f70eaa2"
+  integrity sha512-j4gzywNELz3Adq5YZ6PoyyzZWXat29y7zdCi8pnkUjuuXdDJgx5dHDRM/KPyEJpo8ytx6hY5GOHsOZnea4/cgw==
   dependencies:
     "@iarna/toml" "^2.2.5"
     case "^1.6.3"
@@ -4124,13 +4124,15 @@ reflect.getprototypeof@^1.0.6, reflect.getprototypeof@^1.0.9:
     which-builtin-type "^1.2.1"
 
 regexp.prototype.flags@^1.5.3:
-  version "1.5.3"
-  resolved "https://registry.yarnpkg.com/regexp.prototype.flags/-/regexp.prototype.flags-1.5.3.tgz#b3ae40b1d2499b8350ab2c3fe6ef3845d3a96f42"
-  integrity sha512-vqlC04+RQoFalODCbCumG2xIOvapzVMHwsyIGM/SIE8fRhFFsXeH8/QQ+s0T0kDAhKc4k30s73/0ydkHQz6HlQ==
+  version "1.5.4"
+  resolved "https://registry.yarnpkg.com/regexp.prototype.flags/-/regexp.prototype.flags-1.5.4.tgz#1ad6c62d44a259007e55b3970e00f746efbcaa19"
+  integrity sha512-dYqgNSZbDwkaJ2ceRd9ojCGjBq+mOm9LmtXnAnEGyHhN/5R7iDW2TRw3h+o/jCFxus3P2LfWIIiwowAjANm7IA==
   dependencies:
-    call-bind "^1.0.7"
+    call-bind "^1.0.8"
     define-properties "^1.2.1"
     es-errors "^1.3.0"
+    get-proto "^1.0.1"
+    gopd "^1.2.0"
     set-function-name "^2.0.2"
 
 repeat-string@^1.6.1:
