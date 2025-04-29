@@ -1,13 +1,25 @@
 # AWS Apigateway HTTP helpers
 
-A package useful when developing serverless functions using AWS Lambda/Apigateway. It contains:
+A package useful when developing serverless functions using AWS Lambda/Apigateway. Supports the REST and HTTP flavors 
+of the AWS API Gateway It contains:
 
-## V2/Response
+## V1/Response
 A response object with several methods for common http responses. Return these from your lambda handler:
 
+
+For V1 (rest) responses:
+```
+import { Response } from '@gemeentenijmegen/apigateway-http/lib/V1/Response';
+```
+
+For V2 (http) responses: 
 ```
 import { Response } from '@gemeentenijmegen/apigateway-http/lib/V2/Response';
+```
 
+Then use like this:
+
+```
 // Redirect to https://example.com
 Response.redirect('https://example.com');
 
