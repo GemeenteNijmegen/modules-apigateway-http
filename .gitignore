@@ -52,4 +52,5 @@ junit.xml
 /dist/
 !/.eslintrc.json
 !/.github/workflows/emergency.yml
+!/.nvmrc
 !/.projenrc.js
